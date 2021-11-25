@@ -31,6 +31,18 @@ console.log(targetAmount)
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
 
+if(amount === undefined || amount <0) {
+    console.error(`Oops, we can only use a number greater than 0. Recieved:`, amount)
+    process.exit()
+}
+if(initialAmount === undefined) {
+    console.error(`Oops, we need an input for initial amount. Recieved:`, initialAmount)
+    process.exit()
+}
+if(targetAmount === undefined) {
+    console.error(`Oops, we need an input for target amount. Recieved:`, targetAmount)
+    process.exit()
+}
 
 
 // --------------------------------------------------
