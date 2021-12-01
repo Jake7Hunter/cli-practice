@@ -26,8 +26,9 @@ const targetAmount = process.argv[4]
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
+const {isAmountInvalid} = require (`../test/funtion.validation`)
 
-if(amount === undefined || amount <0) {
+if(isAmountInvalid(amount)) {
     console.error(`Oops, we can only use a number greater than 0. Recieved:`, amount)
     process.exit()
 }
