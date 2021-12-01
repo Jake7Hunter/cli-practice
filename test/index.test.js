@@ -10,9 +10,14 @@
 // file. In this case we've defined the function and the corresponding test in the
 // same file for illustrative and learning purposes.
 
-const {isAmountInvalid} = require(`../test/funtion.validation`)
-const {isInitialAmountInvalid} = require(`../test/funtion.validation`);
+const {isAmountInvalid, isInitialAmountInvalid, isTargetAmountInvalid} = require(`../test/funtion.validation`)
 
+const supportedCurrencies = [
+  "USD",
+  "CAD"
+];
+
+//Amount Test
 describe(`isAmountInvalid()`, () => {
   test('Should return "true" due to lack of input', () => {
     let amount;
@@ -33,6 +38,7 @@ describe(`isAmountInvalid()`, () => {
   });
 });
 
+//Initial Amount Test
 describe(`isInitialAmountInvalid()`, () => {
   test('Should return "true" due to lack of input', () => {
     let initialAmount;
@@ -43,6 +49,21 @@ describe(`isInitialAmountInvalid()`, () => {
   test('Should return "false" due to supported input', () => {
     let initialAmount = `CAD`
     const result = isInitialAmountInvalid(initialAmount);
+    expect(result).toBe(false);
+  });
+});
+
+//Target Amount Test
+describe(`isTargetAmountInvalid()`, () => {
+  test('Should return "true" due to lack of input', () => {
+    let targetAmount;
+    const result = isTargetAmountInvalid(targetAmount);
+    expect(result).toBe(true);
+  });
+
+  test('Should return "false" due to supported input', () => {
+    let targetAmount = supportedCurrencies[1];
+    const result = isTargetAmountInvalid(targetAmount);
     expect(result).toBe(false);
   });
 });

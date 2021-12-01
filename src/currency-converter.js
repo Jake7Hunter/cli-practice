@@ -26,8 +26,7 @@ const targetAmount = process.argv[4]
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
-const {isAmountInvalid} = require(`../test/funtion.validation`);
-const {isInitialAmountInvalid} = require(`../test/funtion.validation`);
+const {isAmountInvalid, isInitialAmountInvalid, isTargetAmountInvalid} = require(`../test/funtion.validation`);
 
 if(isAmountInvalid(amount)) {
     console.error(`Oops, we can only use a number greater than 0. Recieved:`, amount)
@@ -37,7 +36,7 @@ if(isInitialAmountInvalid(initialAmount)) {
     console.error(`Oops, we need an input for initial amount. Recieved:`, initialAmount)
     process.exit()
 }
-if(targetAmount === undefined) {
+if(isTargetAmountInvalid(targetAmount)) {
     console.error(`Oops, we need an input for target amount. Recieved:`, targetAmount)
     process.exit()
 }

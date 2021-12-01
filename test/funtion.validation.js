@@ -6,7 +6,12 @@ const isInitialAmountInvalid = (initialAmount) => {
     return initialAmount === undefined
 };
 
+const isTargetAmountInvalid = (targetAmount) => {
+    return targetAmount === undefined
+};
+
 module.exports = {
     isAmountInvalid,
     isInitialAmountInvalid,
+    isTargetAmountInvalid,
 }
