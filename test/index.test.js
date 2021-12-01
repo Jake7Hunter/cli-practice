@@ -47,7 +47,7 @@ describe(`isInitialAmountInvalid()`, () => {
   });
 
   test('Should return "false" due to supported input', () => {
-    let initialAmount = `CAD`
+    let initialAmount = supportedCurrencies[0];
     const result = isInitialAmountInvalid(initialAmount);
     expect(result).toBe(false);
   });
