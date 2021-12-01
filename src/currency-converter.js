@@ -41,7 +41,6 @@ if(isTargetAmountInvalid(targetAmount)) {
     process.exit()
 }
 
-
 // --------------------------------------------------
 // Step 3: Define currency conversion rates
 // --------------------------------------------------
@@ -71,8 +70,6 @@ const supportedCurrencies = [
     "CAD"
 ];
 
-
-
 //if (supportedCurrencies.includes(targetAmount) === false) {
 if (currencyTargetInvalid(targetAmount)) {
     console.error(`Oops, the target amount is not a supported currency. Supported currencies:`, supportedCurrencies)
@@ -80,8 +77,8 @@ if (currencyTargetInvalid(targetAmount)) {
 }
 
 
-if (currencyTargetInvalid(initialAmount)) {
-    console.error(`Oops, the target amount is not a supported currency. Supported currencies:`, supportedCurrencies)
+if (currencyInitialInvalid(initialAmount)) {
+    console.error(`Oops, the initial amount is not a supported currency. Supported currencies:`, supportedCurrencies)
     process.exit()
 }
 // --------------------------------------------------
