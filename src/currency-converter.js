@@ -19,10 +19,6 @@ const amount = process.argv[2]
 const initialAmount = process.argv[3]
 const targetAmount = process.argv[4]
 
-console.log(amount)
-console.log(initialAmount)
-console.log(targetAmount)
-
 // --------------------------------------------------
 // Step 2: Validate user input
 // --------------------------------------------------
@@ -90,7 +86,13 @@ if (supportedCurrencies.includes(initialAmount) === false) {
 
 // Now we will compute the rate, apply it to the amount, and capture the result.
 
+let covertedAmount;
 
+if (initialAmount === "CAD" && targetAmount === "USD") {
+    covertedAmount = amount * CAD;
+} else if (initialAmount === "USD" && targetAmount === "CAD") {
+    covertedAmount = amount / CAD;
+}
 
 // --------------------------------------------------
 // Step 6: Display results
@@ -99,3 +101,6 @@ if (supportedCurrencies.includes(initialAmount) === false) {
 
 // This message should also include the original amount and currency information
 // supplied by the user.
+
+console.log(`Your input was: ${amount} ${initialAmount}` );
+console.log(`${amount} is equal to ${covertedAmount} ${targetAmount}`);
