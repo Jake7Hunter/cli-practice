@@ -10,7 +10,8 @@
 // file. In this case we've defined the function and the corresponding test in the
 // same file for illustrative and learning purposes.
 
-const {isAmountInvalid} = require(`../test/funtion.validation`);
+const {isAmountInvalid} = require(`../test/funtion.validation`)
+const {isInitialAmountInvalid} = require(`../test/funtion.validation`);
 
 describe(`isAmountInvalid()`, () => {
   test('Should return "true" due to lack of input', () => {
@@ -28,6 +29,20 @@ describe(`isAmountInvalid()`, () => {
   test('Should return "false" due to a supported input', () => {
     let amount = 3;
     const result = isAmountInvalid(amount);
+    expect(result).toBe(false);
+  });
+});
+
+describe(`isInitialAmountInvalid()`, () => {
+  test('Should return "true" due to lack of input', () => {
+    let initialAmount;
+    const result = isAmountInvalid(initialAmount);
+    expect(result).toBe(true);
+  });
+
+  test('Should return "false" due to supported input', () => {
+    let initialAmount = `CAD`
+    const result = isInitialAmountInvalid(initialAmount);
     expect(result).toBe(false);
   });
 });
