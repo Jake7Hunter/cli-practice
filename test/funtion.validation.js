@@ -14,6 +14,10 @@ const currencyTargetInvalid = (targetAmount) => {
     return supportedCurrencies.includes(targetAmount) === false
 };
 
+const currencyInitialInvalid = (initialAmount) => {
+    return supportedCurrencies.includes(initialAmount) === false
+};
+
 const supportedCurrencies = [
     "USD",
     "CAD"
@@ -24,4 +28,5 @@ module.exports = {
     isInitialAmountInvalid,
     isTargetAmountInvalid,
     currencyTargetInvalid,
+    currencyInitialInvalid,
 }

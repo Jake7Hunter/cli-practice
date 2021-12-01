@@ -26,7 +26,7 @@ const targetAmount = process.argv[4]
 
 // If any of the required information is missing, display a meaningful message
 // and exit the program.
-const {isAmountInvalid, isInitialAmountInvalid, isTargetAmountInvalid, currencyTargetInvalid} = require(`../test/funtion.validation`);
+const {isAmountInvalid, isInitialAmountInvalid, isTargetAmountInvalid, currencyTargetInvalid, currencyInitialInvalid} = require(`../test/funtion.validation`);
 
 if(isAmountInvalid(amount)) {
     console.error(`Oops, we can only use a number greater than 0. Recieved:`, amount)
@@ -74,12 +74,13 @@ const supportedCurrencies = [
 
 
 //if (supportedCurrencies.includes(targetAmount) === false) {
-if (currencyTargetInvalid(targetAmount) === false) {
+if (currencyTargetInvalid(targetAmount)) {
     console.error(`Oops, the target amount is not a supported currency. Supported currencies:`, supportedCurrencies)
     process.exit()
 }
 
-if (supportedCurrencies.includes(initialAmount) === false) {
+
+if (currencyTargetInvalid(initialAmount)) {
     console.error(`Oops, the target amount is not a supported currency. Supported currencies:`, supportedCurrencies)
     process.exit()
 }
