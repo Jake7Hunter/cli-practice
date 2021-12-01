@@ -10,14 +10,24 @@
 // file. In this case we've defined the function and the corresponding test in the
 // same file for illustrative and learning purposes.
 
-function myCoolFunction() {
-  return 'Wow, what a cool function';
-}
+const {isAmountInvalid} = require(`../test/funtion.validation`);
 
-describe('myCoolFunction()', () => {
-  test('should return the message: "Wow, what a cool function"', () => {
-    const result = myCoolFunction();
+describe(`isAmountInvalid()`, () => {
+  test('Should return "true" due to lack of input', () => {
+    let amount;
+    const result = isAmountInvalid(amount);
+    expect(result).toBe(true);
+  });
 
-    expect(result).toBe('Wow, what a cool function');
+  test('Should return "true" due to a number less than 0', () => {
+    let amount = -3;
+    const result = isAmountInvalid(amount);
+    expect(result).toBe(true);
+  });
+
+  test('Should return "false" due to a supported input', () => {
+    let amount = 3;
+    const result = isAmountInvalid(amount);
+    expect(result).toBe(false);
   });
 });
